@@ -1,13 +1,10 @@
-$factor_array = []
+require 'prime'
 
-def prime(n)
-	(2..n-1).each {|x| return false if n % x == 0}
-	return true
-end
+$factor_array = []
 
 def factor(n)
 	counter = 2
-	until n % counter == 0 && prime(counter)
+	until n % counter == 0 && counter.prime?
 		counter += 1
 	end
 	$factor_array << counter
