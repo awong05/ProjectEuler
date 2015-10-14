@@ -1,0 +1,1 @@
+100.downto(1).inject(:*).to_s.chars.map(&:to_i).reduce(:+)
