@@ -1,0 +1,1 @@
+puts (2..354_294).select {|n| n if n == n.to_s.chars.map {|d| d.to_i > 0 ? d.to_i**5 : 0}.reduce(:+)}.reduce(:+)
