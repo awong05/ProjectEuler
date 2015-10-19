@@ -1,0 +1,1 @@
+puts (1..999_999).select {|n| n == n.to_s.reverse.to_i and n.to_s(2) == n.to_s(2).reverse}.reduce(:+)
