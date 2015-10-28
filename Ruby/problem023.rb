@@ -1,17 +1,13 @@
 def sum_factors(x)
-	1.upto(Math.sqrt(x)).select {|n| (x % n).zero?}.each_with_object([1]) {|n, a| a << n << x / n unless x / n == x}.reduce(:+)
+	1.upto(Math.sqrt(x)).select {|n| (x % n).zero?}.each_with_object([1]) {|n, a| a << n << x / n unless x / n == x}.uniq.reduce(:+)
 end
 
-$abundants = (12..28123).select {|n| sum_factors(n) > n}
-$integers =* (1..28123)
-$sums = []
+$numbers =* (1..20161)
+$abundants = (12..20161).select {|n| sum_factors(n) > n}
 
-while $abundants.length > 0
+until $abundants.empty?
 	x = $abundants.shift
-	for y in (0...$abundants.length)
-		break if x + $abundants[y] > 28123
-		$sums << (x + $abundants[y]) unless $sums.include?(x + $abundants[y])
-	end
+	$numbers.delete_if {|n| (n % x == 0 and n != x) or $abundants.include?(n - x)}
 end
 
-puts ($integers - $sums).reduce(:+)
+puts $numbers.reduce(:+)
