@@ -1,11 +1,9 @@
-count = 0
-fraction = []
+count, length, fraction = 0, 0, []
 
-while fraction.join.length < 1_000_000
-	count += 1
-	fraction << count
-	puts fraction.join.length
+while length < 1_000_000
+	length += "#{count}".length
+	fraction << count += 1
 end
 
-fraction = fraction.join.split('')
-puts fraction[0] * fraction[10] * fraction[100] * fraction[1_000] * fraction[10_000] * fraction[100_000] * fraction[1_000_000]
+fraction = fraction.join.split('').map(&:to_i)
+puts fraction[0] * fraction[9] * fraction[99] * fraction[999] * fraction[9_999] * fraction[99_999] * fraction[999_999]
