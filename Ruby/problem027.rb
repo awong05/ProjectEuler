@@ -6,12 +6,9 @@ b = Prime.take_while {|n| n < 1000}
 (-999..999).each do |x|
 	for y in b
 		n = 0
-		while (n ** 2 + x * n + y).prime?
-			n += 1
-		end
+		n += 1 while (n ** 2 + x * n + y).prime?
 		coefficients["#{x} * #{y}"] = n
 	end
-	puts x
 end
 
-puts coefficients.key(coefficients.values.max)
+puts eval(coefficients.key(coefficients.values.max))
