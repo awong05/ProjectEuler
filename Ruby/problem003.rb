@@ -4,9 +4,7 @@ $factor_array = []
 
 def factor(n)
 	counter = 2
-	until n % counter == 0 && counter.prime?
-		counter += 1
-	end
+	counter += 1 until n % counter == 0 && counter.prime?
 	$factor_array << counter
 	if n != counter
 		factor(n/counter)
