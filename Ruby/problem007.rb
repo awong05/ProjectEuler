@@ -1,2 +1,2 @@
 require 'prime'
-p = Prime.take(10001).pop
+puts Prime.take(10001).pop
